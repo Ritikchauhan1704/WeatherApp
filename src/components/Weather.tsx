@@ -12,7 +12,7 @@ const Weather = () => {
         <h1 className="text-5xl font-semibold">{weather.name}</h1>
         <div className="capitalize">{weather.weather[0].description}</div>
         <img
-          src={`../../public/icons/${weather.weather[0].icon}.svg`}
+          src={`/icons/${weather.weather[0].icon}.svg`}
           className="w-32 md:w-44"
         />
         <div className="font-bold text-2xl">
