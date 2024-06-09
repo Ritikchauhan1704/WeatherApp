@@ -1,15 +1,15 @@
 //format the today's Forecast
 export const getTodayForecastWeather = (
-  response,
-  current_date,
-  current_datetime
+  response:any,
+  current_date:any,
+  current_datetime:any
 ) => {
   const all_today_forecasts: any = [];
 
   if (!response || Object.keys(response).length === 0 || response.cod === '404')
     return [];
   else
-    response?.list.slice().map((item) => {
+    response?.list.slice().map((item:any) => {
       if (item.dt_txt.startsWith(current_date.substring(0, 10))) {
         if (item.dt > current_datetime) {
           all_today_forecasts.push({
@@ -45,8 +45,8 @@ export function transformDateFormat() {
   return newFormatDate;
 }
 
-export function getMostFrequentWeather(arr) {
-  const hashmap = arr.reduce((acc, val) => {
+export function getMostFrequentWeather(arr:any) {
+  const hashmap = arr.reduce((acc:any, val:any) => {
     acc[val] = (acc[val] || 0) + 1;
     return acc;
   }, {});
@@ -115,26 +115,26 @@ const ALL_DESCRIPTIONS = [
   {icon: '50d.png', description: 'tornado'},
 ];
 
-const descriptionToIconName = (desc) => {
+const descriptionToIconName = (desc:any) => {
   const iconName = ALL_DESCRIPTIONS.find((item) => item.description === desc);
   return iconName?.icon || 'unknown';
 };
 
-function getAverage(array, isRound = true) {
-  let average = 0;
+function getAverage(array:any, isRound = true) {
+  let average:any = 0;
   if (isRound) {
-    average = Math.round(array.reduce((a, b) => a + b, 0) / array.length);
+    average = Math.round(array.reduce((a:any, b:any) => a + b, 0) / array.length);
     if (average === 0) {
       average = 0;
     }
-  } else average = (array.reduce((a, b) => a + b, 0) / array.length).toFixed(2);
+  } else average = (array.reduce((a:any, b:any) => a + b, 0) / array.length).toFixed(2);
 
   return average;
 }
 
-function groupBy(key) {
-  return function group(array) {
-    return array.reduce((acc, obj) => {
+function groupBy(key:any) {
+  return function group(array:any) {
+    return array.reduce((acc:any, obj:any) => {
       const property = obj[key];
       const {date, ...rest} = obj;
       acc[property] = acc[property] || [];
@@ -144,14 +144,14 @@ function groupBy(key) {
   };
 }
 //format the Weekly Forecast
-export const getWeekForecastWeather = (response) => {
+export const getWeekForecastWeather = (response:any) => {
   const foreacast_data: any = [];
   const descriptions_data: any = [];
 
   if (!response || Object.keys(response).length === 0 || response.cod === '404')
     return [];
   else
-    response?.list.slice().map((item, idx) => {
+    response?.list.slice().map((item:any, idx:any) => {
       descriptions_data.push({
         description: item.weather[0].description,
         date: item.dt_txt.substring(0, 10),
@@ -173,11 +173,11 @@ export const getWeekForecastWeather = (response) => {
 
   const description_keys = Object.keys(grouped_forecast_descriptions);
 
-  const dayDescList = [];
+  const dayDescList:any = [];
 
   description_keys.forEach((key) => {
     const singleDayDescriptions = grouped_forecast_descriptions[key].map(
-      (item) => item.description
+      (item:any) => item.description
     );
     const mostFrequentDescription = getMostFrequentWeather(
       singleDayDescriptions

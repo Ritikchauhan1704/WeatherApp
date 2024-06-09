@@ -1,6 +1,6 @@
 //reusable component to show air conditions
 
-const Card = ({title, icon, content}) => {
+const Card = ({title, icon, content}:any) => {
   return (
     <div className="rounded-lg shadow-md flex flex-col p-2 md:p-1 items-center">
       <h1>{title}</h1>

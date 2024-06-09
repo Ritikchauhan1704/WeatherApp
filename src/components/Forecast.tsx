@@ -79,7 +79,7 @@ const Forecast = () => {
           <h1 className="mb-5 font-semibold uppercase">Weekly Forecast</h1>
           <div className="flex flex-col items-start w-full md:grid md:grid-cols-3">
             {weekForecast &&
-              weekForecast.map((item, i) => (
+              weekForecast.map((item:any, i:any) => (
                 <div
                   className="flex w-full gap-4 md:flex-col md:gap-1  md:items-center p-1 rounded-lg md:shadow-md  items-center justify-start"
                   key={item.date}

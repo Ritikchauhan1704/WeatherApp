@@ -21,14 +21,14 @@ const Search = () => {
   };
   // cusstom style for search
   const customStyles = {
-    control: (provided, state) => ({
+    control: (provided:any, state:any) => ({
       ...provided,
       width: '50%',
       borderRadius: '1rem',
       border: state.isFocused ? null : '2px solid #ccc',
       boxShadow: state.isFocused ? '0 0 0 2px #ccc' : null,
     }),
-    option: (provided, state) => ({
+    option: (provided:any, state:any) => ({
       ...provided,
       backgroundColor: state.isFocused ? '#3699FF' : null,
       color: state.isFocused ? 'white' : null,
