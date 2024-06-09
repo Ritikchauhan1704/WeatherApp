@@ -64,11 +64,7 @@ const Forecast = () => {
                   className="flex gap-4  md:flex-col md:gap-1 justify-center md:items-center p-1 rounded-lg md:shadow-md"
                 >
                   <div className="">{item.temperature}</div>
-                  <img
-                    src={`../../public/icons/${item.icon}.svg`}
-                    className="w-6"
-                    alt=""
-                  />
+                  <img src={`/icons/${item.icon}.svg`} className="w-6" alt="" />
                   <div className="">{item.time}</div>
                 </div>
               ))}
@@ -79,7 +75,7 @@ const Forecast = () => {
           <h1 className="mb-5 font-semibold uppercase">Weekly Forecast</h1>
           <div className="flex flex-col items-start w-full md:grid md:grid-cols-3">
             {weekForecast &&
-              weekForecast.map((item:any, i:any) => (
+              weekForecast.map((item: any, i: any) => (
                 <div
                   className="flex w-full gap-4 md:flex-col md:gap-1  md:items-center p-1 rounded-lg md:shadow-md  items-center justify-start"
                   key={item.date}
@@ -87,7 +83,7 @@ const Forecast = () => {
                   <div className="">{item.temp}°C</div>
                   <div className="flex gap-2">
                     <img
-                      src={`../../public/icons/${item.icon.split('.')[0]}.svg`}
+                      src={`/icons/${item.icon.split('.')[0]}.svg`}
                       className="w-6"
                       alt=""
                     />
