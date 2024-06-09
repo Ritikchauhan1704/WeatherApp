@@ -4,12 +4,12 @@ import Card from './Card';
 const Weather = () => {
   //get the current weather data
   const {weather} = useWeather();
-  
+
   return (
     <div className="h-1/2 md:h-full md:w-[70%] lg:w-[40%] flex md:flex-col">
       <div className="flex flex-col w-1/2 md:w-full gap-2 items-center md:gap-4">
         <h1 className="uppercase">Current Weather</h1>
-        <h1 className="text-5xl font-semibold">{weather.name}</h1>
+        <h1 className="text-4xl font-semibold">{weather.name}</h1>
         <div className="capitalize">{weather.weather[0].description}</div>
         <img
           src={`/icons/${weather.weather[0].icon}.svg`}

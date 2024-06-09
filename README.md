@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Check the current weather on any city on the planet.
 
-Currently, two official plugins are available:
+![Alt img](./readmeSS/recording-2024-06-10-03-11-50.webm)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app is developed using React.js and TailwindCSS
 
-## Expanding the ESLint configuration
+<br/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 💻 Live Demo:
 
-- Configure the top-level `parserOptions` property like this:
+https://weatherapp0505.vercel.app/
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+<br/>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Features
+
+1. User's ability to search cities
+
+2. Current local time and date
+
+3. Temperatures and humidity
+
+4. Wind speed and direction
+
+## ✨ Getting Started
+
+- Make sure you already have `Node.js` and `npm` installed in your system.
+- You need an API key from [OpenWeatherMap](https://openweathermap.org/). After creating an account, [grab your key](https://home.openweathermap.org/api_keys).
+- Then, under the `src` directory, go to `api/OpenWeatherService` and replace `WEATHER_API_KEY` with your OpenWeatherMap API Key.
+  - **`api/OpenWeatherService.js`**: It contains the code related to the back-end of the application.
+
+<br/>
+
+## Installation
+
+1. `git clone https://github.com/Ritikchauhan1704/WeatherApp.git`
+
+2. `cd WeatherApp`
+
+3. `npm install`
+
+4. Log-in to [Openweathermap.com](https://openweathermap.org/)
+
+5. Create an API key
+
+6. Create .env
+
+7. Paste API key for `OPENWEATHER_API_KEY` with name `VITE_API_KEY`
+
+8. `npm run dev`
