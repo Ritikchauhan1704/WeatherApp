@@ -44,7 +44,10 @@ function App() {
     return (
       <div className="top-root">
         <main className="h-screen p-4 md:p-8 bg-custom-gradient relative dark:bg-custom-dark-gradient">
-          <button className="absolute top-6 left-6" onClick={handleClick}>
+          <button
+            className="absolute top-6 left-6 md:top-10 md:left-8"
+            onClick={handleClick}
+          >
             <ModeBtn />
           </button>
           <div className="scrollbar flex flex-col md:flex-row gap-2 bg-white h-full rounded-xl p-3 overflow-y-scroll dark:bg-custom-dark-gradient-2 dark:text-white dark:shadow-2xl ">
