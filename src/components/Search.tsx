@@ -1,19 +1,17 @@
-import {useState} from 'react';
 import useWeather from '../context/WeatherContext';
-import {fetchCities, getWeatherData} from '../api/weatherApi';
+import {fetchCities} from '../api/weatherApi';
 import {AsyncPaginate} from 'react-select-async-paginate';
 
 const Search = () => {
   const {setCoor} = useWeather();
-  // const [place, setPlace] = useState('');
 
-  const [searchValue, setSearchValue] = useState(null);
-
-  const loadOptions = async (inputValue) => {
+  // loading option based on typing value
+  const loadOptions = async (inputValue: string) => {
+    //featching all the cities based on the type
+    //debouncing the input field
     const citiesList = await fetchCities(inputValue);
-
     return {
-      options: citiesList.data.map((city) => {
+      options: citiesList.data.map((city: any) => {
         return {
           value: `${city.latitude} ${city.longitude}`,
           label: `${city.name}, ${city.countryCode}`,
@@ -21,7 +19,7 @@ const Search = () => {
       }),
     };
   };
-
+  // cusstom style for search
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -36,25 +34,20 @@ const Search = () => {
       color: state.isFocused ? 'white' : null,
     }),
   };
-
-  const onChangeHandler = async (enteredData) => {
-    console.log(enteredData);
+  // Get and change the coordinates of the city
+  const onChangeHandler = async (enteredData: any) => {
     const [latitude, longitude] = enteredData.value.split(' ');
-    const result = await getWeatherData(latitude, longitude);
-    console.log(result);
-
-    // setSearchValue(enteredData);
-    // setCoor(enteredData);
+    setCoor({latitude, longitude});
   };
   return (
-      <AsyncPaginate
-        placeholder="Search Cities"
-        debounceTimeout={600}
-        value={searchValue}
-        onChange={onChangeHandler}
-        styles={customStyles}
-        loadOptions={loadOptions}
-      />
+    // Using AsyncPaginate For debouncing
+    <AsyncPaginate
+      placeholder="Search Cities"
+      debounceTimeout={600}
+      onChange={onChangeHandler}
+      styles={customStyles}
+      loadOptions={loadOptions}
+    />
   );
 };
 

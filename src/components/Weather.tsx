@@ -1,10 +1,10 @@
 import useWeather from '../context/WeatherContext';
 import {getDirection} from '../utils/utils';
 import Card from './Card';
-const Temperature = () => {
+const Weather = () => {
+  //get the current weather data
   const {weather} = useWeather();
-  // console.log(weather);
-
+  
   return (
     <div className="h-1/2 md:h-full md:w-[70%] lg:w-[40%] flex md:flex-col">
       <div className="flex flex-col w-1/2 md:w-full gap-2 items-center md:gap-4">
@@ -20,7 +20,7 @@ const Temperature = () => {
         </div>
       </div>
       <div className="w-1/2 flex flex-col items-center md:w-full">
-        <h1 className='font-semibold md:underline'>AIR CONDITIONS</h1>
+        <h1 className="font-semibold md:underline">AIR CONDITIONS</h1>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 w-full h-full p-2 ">
           <Card
             title="Humidty"
@@ -48,4 +48,4 @@ const Temperature = () => {
   );
 };
 
-export default Temperature;
+export default Weather;

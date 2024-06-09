@@ -1,3 +1,4 @@
+//format the today's Forecast
 export const getTodayForecastWeather = (
   response,
   current_date,
@@ -27,6 +28,7 @@ export const getTodayForecastWeather = (
     return all_today_forecasts.slice(-6);
   }
 };
+
 export function transformDateFormat() {
   const date = new Date();
   const month = date.toLocaleString('en-US', {month: '2-digit'});
@@ -52,6 +54,7 @@ export function getMostFrequentWeather(arr) {
     hashmap[a] > hashmap[b] ? a : b
   );
 }
+
 const ALL_DESCRIPTIONS = [
   {icon: '01d.png', description: 'clear sky'},
   {icon: '02d.png', description: 'few clouds'},
@@ -128,6 +131,7 @@ function getAverage(array, isRound = true) {
 
   return average;
 }
+
 function groupBy(key) {
   return function group(array) {
     return array.reduce((acc, obj) => {
@@ -139,7 +143,7 @@ function groupBy(key) {
     }, {});
   };
 }
-
+//format the Weekly Forecast
 export const getWeekForecastWeather = (response) => {
   const foreacast_data: any = [];
   const descriptions_data: any = [];
@@ -211,8 +215,43 @@ export const getWeekForecastWeather = (response) => {
   return dayAvgsList;
 };
 
+//Get the direction using the degree provided by the api
 export function getDirection(angle: number) {
   const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
   const index = Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8;
   return directions[index];
 }
+
+//get array of weekDays based on today's day
+export function getWeekDays() {
+  const DAYS = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+  const dayInAWeek = new Date().getDay();
+  const days = DAYS.slice(dayInAWeek, DAYS.length).concat(
+    DAYS.slice(0, dayInAWeek)
+  );
+  return days;
+}
+
+//get today's day
+export const getCurrentDay: any = () => {
+  const DAYS = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  const date = new Date();
+  const day = date.getDay();
+  return DAYS[day];
+};

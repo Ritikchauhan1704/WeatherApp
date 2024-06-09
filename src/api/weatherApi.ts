@@ -17,6 +17,7 @@ const GEO_API_OPTIONS = {
 
 const getWeatherData = async (lat: string, lon: string) => {
   try {
+    // featch weather data and forecast data
     const [weather, forecast] = await Promise.all([
       axios.get(WEATHER_API_URL + `&lat=${lat}&lon=${lon}`),
       axios.get(FORECAST_API_URL + `&lat=${lat}&lon=${lon}`),
@@ -28,7 +29,7 @@ const getWeatherData = async (lat: string, lon: string) => {
     console.log(error);
   }
 };
-
+// fetch the coordinates and cities based on the input field
 const fetchCities = async (input: string) => {
   try {
     const response = await fetch(
