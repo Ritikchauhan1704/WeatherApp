@@ -2,7 +2,8 @@
 
 Check the current weather on any city on the planet.
 
-![Alt img](./readmeSS/recording-2024-06-10-03-11-50.webm)
+![Alt img](./readmeSS/Light.png)
+![Alt img](./readmeSS/Dark.png)
 
 The app is developed using React.js and TailwindCSS
 
